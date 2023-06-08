@@ -7,6 +7,7 @@ TagManager:
   - Boundry
   - Enemy
   - Enemy Projectile
+  - Player bullet
   layers:
   - Default
   - TransparentFX
