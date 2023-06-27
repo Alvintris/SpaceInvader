@@ -1,28 +1,69 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody2D player_rb;
-
-    private Vector3 direction;
+    [SerializeField] private Bullet preFab;
     [SerializeField] private float speed;
 
-    private void Start()
-    {
-        player_rb = GetComponent<Rigidbody2D>();
-    }
+    public int lives = 3;
+
+    public Action damaged;
+    public Action shootingSound;
+
+    private bool laserActive;
 
     private void FixedUpdate()
     {
-        Move();
+        Movement();
+        Shoot();
     }
 
-    public void Move()
+    private void Shoot()
     {
-        direction.x = Input.GetAxisRaw("Horizontal");
+        if (Input.GetButton("Fire1"))
+        {
+            if (!laserActive)
+            {
+                shootingSound?.Invoke();
+                Bullet bullet = Instantiate(preFab, this.transform.position, Quaternion.identity);
+                bullet.destroyed += BulletDestroyed;
+                laserActive = true;
+            }
+        }
+    }
 
-        player_rb.velocity = direction * Time.deltaTime * speed;
+    private void BulletDestroyed()
+    {
+        laserActive = false;
+    }
+
+    private void Movement()
+    {
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+
+        float direction = Input.GetAxisRaw("Horizontal");
+
+        if (this.transform.position.x < leftEdge.x + 1.0f && direction == -1)
+        {
+            direction = 0;
+        } else if(this.transform.position.x > rightEdge.x - 1.0f && direction == 1)
+        {
+            direction = 0;
+        }
+
+        this.transform.position += new Vector3 (direction * speed * Time.deltaTime, 0, 0);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        {
+            Debug.Log("Damage");
+            damaged?.Invoke();
+        }
     }
 }

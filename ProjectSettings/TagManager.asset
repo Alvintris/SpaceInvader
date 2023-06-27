@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Boundry
+  - Bullet
   - Enemy
-  - Enemy Projectile
-  - Player bullet
+  - Base
   layers:
   - Default
   - TransparentFX
@@ -15,10 +14,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Invader
+  - PlayerBullet
+  - EnemyBullet
   - 
   - 
   - 

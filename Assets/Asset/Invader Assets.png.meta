@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8205fa368e2fb11429c833cda049330b
+guid: fd64d2b05fcb43d4fb72c41f34221730
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,64 +117,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy1_0
+      name: Invader Assets_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 223
-        width: 96
-        height: 61
+        x: 0
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a29e248d79e3fb4b98cb6e925ead9ac
-      internalID: 35730277
+      spriteID: 3509862bd585f494088658917761f5cb
+      internalID: 1136697229
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_1
+      name: Invader Assets_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 117
-        width: 96
-        height: 67
+        x: 100
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d55320a3daef2024195a29d296720f86
-      internalID: 1949343480
+      spriteID: 7979afbc83dc32a4fa1d1bc779e34456
+      internalID: -538870673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy1_2
+      name: Invader Assets_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 15
-        width: 96
-        height: 69
+        x: 200
+        y: 300
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 355d7622be6b176429690afa903a9001
-      internalID: 1126666287
+      spriteID: 58afad0b2c74d9141bb0435fa014f39e
+      internalID: -630804332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Invader Assets_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99296aaf95135c4799265283585e23f
+      internalID: 1148899000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Invader Assets_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65ebd15acb370746b74f9241042a857
+      internalID: -726767277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Invader Assets_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a084ee1665a306b4ca98a452dd9c46d1
+      internalID: -1432588139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Invader Assets_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 51, y: 23, z: 44, w: 28}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fca301aa7b4be94bbd2282dd5f93b40
+      internalID: 1481597845
       vertices: []
       indices: 
       edges: []
@@ -190,9 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemy1_1: 1949343480
-      Enemy1_0: 35730277
-      Enemy1_2: 1126666287
+      Invader Assets_6: 1481597845
+      Invader Assets_5: -1432588139
+      Invader Assets_1: -538870673
+      Invader Assets_2: -630804332
+      Invader Assets_3: 1148899000
+      Invader Assets_0: 1136697229
+      Invader Assets_4: -726767277
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
