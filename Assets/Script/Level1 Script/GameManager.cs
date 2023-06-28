@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _livesText;
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] private GameObject _gameOverUI;
+    [SerializeField] private GameObject _pauseGameUI;
 
     private int score;
     private int lives;
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Screen.SetResolution(480, 854, false);
+
         player = FindObjectOfType<Player>();
         invaders = FindObjectOfType<Invaders>();
         randomInvader = FindObjectOfType<RandomInvader>();
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
+    { 
         player.damaged += OnPlayerKilled;
         invaders.killed += OnInvaderKilled;
         randomInvader.killed += OnRandomInvaderKilled;
@@ -40,6 +43,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (lives > 0 && invaders.InvadersCheck() == true && randomInvader.GetKilled() == true) NewRound();
+        PauseScreen();
     }
 
     private void NewRound()
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
         SetLivesText();
         SetScore();
         _gameOverUI.SetActive(false);
+        _pauseGameUI.SetActive(false);
         Time.timeScale = 1;
 
         NewRound();
@@ -91,5 +96,26 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _gameOverUI.SetActive(true);
         }
+    }
+
+    private void PauseScreen()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_pauseGameUI.activeInHierarchy)
+            {
+                _pauseGameUI.SetActive(false);
+                Time.timeScale = 1;
+            }else if (!_pauseGameUI.activeInHierarchy)
+            {
+                _pauseGameUI.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+    }
+
+    public void ExitButton(string nameScene)
+    {
+        SceneManager.LoadScene(nameScene);
     }
 }

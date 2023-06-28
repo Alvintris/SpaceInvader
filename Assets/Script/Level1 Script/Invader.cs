@@ -13,7 +13,8 @@ public class Invader : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("PlayerBullet") ||
+            collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             killed?.Invoke(this);
             Destroy(gameObject);

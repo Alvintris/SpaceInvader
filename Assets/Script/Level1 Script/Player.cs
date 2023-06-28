@@ -60,9 +60,9 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet") || 
+            collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
-            Debug.Log("Damage");
             damaged?.Invoke();
         }
     }
