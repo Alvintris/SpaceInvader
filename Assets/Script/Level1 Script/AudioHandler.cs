@@ -6,6 +6,7 @@ public class AudioHandler : MonoBehaviour
 {
     private Player player;
     private Invaders invader;
+    private RandomInvader randomInvader;
 
 
     [Header("Audio Settings")]
@@ -17,12 +18,14 @@ public class AudioHandler : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
         player = FindObjectOfType<Player>();
         invader = FindObjectOfType<Invaders>();
+        randomInvader = FindObjectOfType<RandomInvader>();
     }
 
     private void Start()
     {
         player.shootingSound += PlayerShootingSound;
         invader.killed += InvaderKilledSound;
+        randomInvader.killed += RandomInvaderKilledSound;
     }
 
     private void PlayerShootingSound()
@@ -31,6 +34,11 @@ public class AudioHandler : MonoBehaviour
     }
 
     private void InvaderKilledSound(Invader invader)
+    {
+        m_AudioSource.PlayOneShot(m_clip[1]);
+    }
+
+    private void RandomInvaderKilledSound()
     {
         m_AudioSource.PlayOneShot(m_clip[1]);
     }

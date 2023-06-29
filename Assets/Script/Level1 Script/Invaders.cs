@@ -30,7 +30,6 @@ public class Invaders : MonoBehaviour
 
     private void Awake()
     {
-        SpawnInvaders();
         startPos = transform.position;
     }
 
@@ -101,17 +100,18 @@ public class Invaders : MonoBehaviour
         {
             float width = spacing * (column - 1);
             float height = spacing * (row - 1);
-            Vector3 centering = new Vector3(-width / 2, -height / 2, 0);
+            Vector3 centering = new Vector3(-width * 0.5f, -height * 0.5f, 0);
             Vector3 rowPosition = new Vector3(centering.x, centering.y + (i * spacing), 0);
 
             for(int j = 0; j < column; j++)
             {
                 Invader invader = Instantiate(invaders[index], this.transform);
-
                 invader.killed += InvaderKilled;
+                invader.baseDestroyed += InvaderKilled;
+
                 Vector3 position = rowPosition;
                 position.x += j * spacing;
-                invaders[index].transform.position = position;
+                invader.transform.localPosition = position;
             }
 
             index++;
@@ -121,8 +121,9 @@ public class Invaders : MonoBehaviour
 
     private void InvaderKilled(Invader invader)
     {
-        _invaderKilled++;
-        killed.Invoke(invader);
+        Destroy(invader.gameObject);
+        _invaderKilled += 1;
+        killed(invader);
     }
 
     public void ResetInvaders()

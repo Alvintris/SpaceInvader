@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7849441268337311984, guid: 86ffa31343b87ff43afe98ccd94d29ec, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -3696795676510858818, guid: 86ffa31343b87ff43afe98ccd94d29ec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86ffa31343b87ff43afe98ccd94d29ec, type: 3}
@@ -95,4 +99,3 @@ MonoBehaviour:
   points: 100
   speed: 1
   direction: {x: 1, y: 0, z: 0}
-  IsKilled: 0

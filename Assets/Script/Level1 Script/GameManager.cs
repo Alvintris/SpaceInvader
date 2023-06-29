@@ -32,12 +32,19 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    { 
+    {
         player.damaged += OnPlayerKilled;
         invaders.killed += OnInvaderKilled;
         randomInvader.killed += OnRandomInvaderKilled;
 
         NewGame();
+    }
+
+    private void OnDisable()
+    {
+        player.damaged -= OnPlayerKilled;
+        invaders.killed -= OnInvaderKilled;
+        randomInvader.killed -= OnRandomInvaderKilled;
     }
 
     private void Update()
@@ -61,6 +68,11 @@ public class GameManager : MonoBehaviour
         _gameOverUI.SetActive(false);
         _pauseGameUI.SetActive(false);
         Time.timeScale = 1;
+
+        for (int i = 0; i < bases.Length; i++)
+        {
+            bases[i].ResetBases();
+        }
 
         NewRound();
     }

@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if(destroyed != null)
         {
-            destroyed.Invoke();
+            destroyed?.Invoke();
         }
         Destroy(gameObject);
     }

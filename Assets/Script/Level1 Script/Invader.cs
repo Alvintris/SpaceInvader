@@ -8,6 +8,8 @@ public class Invader : MonoBehaviour
     public int points;
     public System.Action<Invader> killed;
 
+    public System.Action<Invader> baseDestroyed;
+
     public string GetName() => this.nameInvader;
     public int GetPoints() => this.points;
 
@@ -17,7 +19,6 @@ public class Invader : MonoBehaviour
             collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             killed?.Invoke(this);
-            Destroy(gameObject);
         }
     }
 }

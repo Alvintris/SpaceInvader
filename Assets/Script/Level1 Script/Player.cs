@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Bullet preFab;
     [SerializeField] private float speed;
 
+    [SerializeField] private float _fireDelay = 0.5f;
+    private float _fireTime = 0.15f;
+
     public int lives = 3;
 
     public Action damaged;
     public Action shootingSound;
-
-    private bool laserActive;
 
     private void FixedUpdate()
     {
@@ -23,21 +24,12 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetKey(KeyCode.Space) && Time.time > _fireTime)
         {
-            if (!laserActive)
-            {
-                shootingSound?.Invoke();
-                Bullet bullet = Instantiate(preFab, this.transform.position, Quaternion.identity);
-                bullet.destroyed += BulletDestroyed;
-                laserActive = true;
-            }
+            shootingSound?.Invoke();
+            Instantiate(preFab, this.transform.position, Quaternion.identity);
+            _fireTime = Time.time + _fireDelay;
         }
-    }
-
-    private void BulletDestroyed()
-    {
-        laserActive = false;
     }
 
     private void Movement()
@@ -60,7 +52,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet") || 
+        if (collision.gameObject.layer == LayerMask.NameToLayer("EnemyBullet") ||
             collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
             damaged?.Invoke();

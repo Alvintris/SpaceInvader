@@ -1674,6 +1674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preFab: {fileID: 1469073274620738446, guid: b36b171110a5dff429912eb64610474b, type: 3}
   speed: 5
+  _fireDelay: 0.7
   lives: 3
 --- !u!1 &804461557
 GameObject:
@@ -2560,8 +2561,8 @@ MonoBehaviour:
   - {fileID: 209454921152596243, guid: 46b377c792144c74cbc6fb1a987656a5, type: 3}
   - {fileID: 209454921152596243, guid: 46b377c792144c74cbc6fb1a987656a5, type: 3}
   column: 8
-  row: 6
-  spacing: 1
+  row: 4
+  spacing: 0.9
   speed: 0.7
   _preFab: {fileID: 8995749248275621347, guid: ea8c9badfcccae94cab5cd3fe26817fe, type: 3}
   _attackRate: 1
